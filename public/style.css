@@ -19,6 +19,7 @@ body {
   --action-text-color: white;
   --btn-highlight: rgb(57, 57, 87);
   --btn-active: rgb(30, 30, 50);
+  --commission-hg-color: rgb(243, 243, 243);
 }
 
 .dark-theme {
@@ -29,6 +30,7 @@ body {
   --text-color: white;
   --action-text-color: white;
   --image-filter: invert(1);
+  --commission-hg-color: var(--btn-highlight);
 }
 
 #main-container {
@@ -80,7 +82,7 @@ body {
 #toolbar {
   width: 100%;
   max-height: 400px;
-  border-bottom: solid 2px var(--text-color);
+  border-bottom: solid 3px var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,7 +132,6 @@ body {
 
 .hide-filters {
   max-height: 50px !important;
-  border-bottom: none !important;
 }
 
 .transition-complete #show {
@@ -353,7 +354,7 @@ img {
 }
 
 .commision {
-  border: solid black 1px;
+  border: solid 1px var(--text-color);
   border-radius: 5px;
   padding: 5px;
   margin: 20px 0 20px 6%;
@@ -377,7 +378,7 @@ img {
 }
 
 .commision:hover {
-  background-color: rgb(243, 243, 243);
+  background-color: var(--commission-hg-color);
 }
 
 .commision h1 {
@@ -430,10 +431,9 @@ img {
 
 #summary-container {
   width: 90%;
-  border: solid black 2px;
+  border: solid 2px var(--text-color);
   border-top: none;
   border-radius: 0 0 10px 10px;
-  box-shadow: black 0 0 5px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
