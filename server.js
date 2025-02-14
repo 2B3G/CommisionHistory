@@ -29,6 +29,10 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
+app.get("/", (req, res) => {
+  res.sendFile("/public/index.html");
+});
+
 app.post("/save", (req, res) => {
   if (!req.files || !req.files.file)
     return res.status(400).json({ message: "No file uploaded" });
