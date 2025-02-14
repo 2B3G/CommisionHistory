@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+    />
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+    <title>Commision history viewer</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <div class="error-container"><p></p></div>
+
+      <div id="map-container">
+        <div id="themes-container">
+          <span class="selected-theme" id="light-theme"
+            ><img src="icons/sun.png" />
+          </span>
+          <span id="dark-theme"><img src="icons/moon.png" /></span>
+        </div>
+        <div id="drawer">
+          <div id="toolbar">
+            <form id="filter-form" action="/" method="POST"></form>
+
+            <p>
+              Post code
+              <input
+                class="postal-input"
+                form="filter-form"
+                required
+                pattern="[A-Z0-9]*"
+                title="Przykład PL1002"
+                name="post-from"
+              />
+              -
+              <input
+                class="postal-input"
+                form="filter-form"
+                required
+                pattern="[A-Z0-9]*"
+                title="Przykład PL1002"
+                name="post-to"
+              />
+            </p>
+            <p>
+              LDM
+              <input
+                class="postal-input"
+                form="filter-form"
+                pattern="[0-9.]*"
+                title="Liczba naturalna"
+                name="length-from"
+              />
+              -
+              <input
+                class="postal-input"
+                form="filter-form"
+                pattern="[0-9.]*"
+                title="Liczba naturalna"
+                name="length-to"
+              />
+            </p>
+            <p>
+              Weight(kg)
+              <input
+                class="postal-input"
+                form="filter-form"
+                pattern="[0-9]*"
+                title="Liczby całkowite"
+                name="weight-from"
+              />
+              -
+              <input
+                class="postal-input"
+                form="filter-form"
+                pattern="[0-9]*"
+                title="Liczby całkowite"
+                name="weight-to"
+              />
+            </p>
+            <p>
+              Radius(km)
+              <input
+                class="postal-input"
+                form="filter-form"
+                pattern="[0-9]*"
+                title="Liczby całkowite"
+                name="radius"
+              />
+            </p>
+
+            <div id="toolbar-btns">
+              <button id="add-file-btn">File +</button>
+              <button id="filter-btn" form="filter-form" type="submit">
+                Go
+              </button>
+            </div>
+
+            <button id="hide" class="toolbar-size-btn">
+              <img src="icons/hide.png" />
+            </button>
+            <button id="show" class="toolbar-size-btn">
+              <img src="icons/show.png" />
+            </button>
+          </div>
+          <div id="results">
+            <div id="summary-container">
+              <h2>Range</h2>
+              <div id="summary-range"></div>
+              <h2>Average</h2>
+              <div id="summary-average"></div>
+            </div>
+            <div id="commision-list"></div>
+          </div>
+        </div>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script src="js/themeUtil.js" type="module"></script>
+
+    <script src="main.js" type="module"></script>
+    <script src="js/toolbarUtils.js" type="module"></script>
+  </body>
+</html>
